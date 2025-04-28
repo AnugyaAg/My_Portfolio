@@ -194,12 +194,12 @@
           </div>
 
           <div class="carousel-item justify-content-center d-flex flex-column align-items-center">
-            <a href="https://github.com/AnugyaAg/ML-Docker" target="_blank">
-              <img src="img/MLDOCKER.png" class="d-block w-85 img-fluid" alt="">
+            <a href="https://github.com/AnugyaAg/Deciper-ML-Project" target="_blank">
+              <img src="img/decipher.png" class="d-block w-85 img-fluid" alt="">
             </a>
             <div class="mt-3 d-flex gap-3">
-              <a href="https://ml-docker-8snmfxpth9ow7bmx5vutaq.streamlit.app/" target="_blank" class="btn btn-primary">Preview</a>
-              <a href="https://github.com/AnugyaAg/ML-Docker" target="_blank" class="btn btn-dark">GitHub</a>
+              <a href="https://deciper-ml-project-evjbtqjequbnu76t98kw5e.streamlit.app/" target="_blank" class="btn btn-primary">Preview</a>
+              <a href="https://github.com/AnugyaAg/Deciper-ML-Project" target="_blank" class="btn btn-dark">GitHub</a>
             </div>
           </div> 
     
@@ -433,15 +433,29 @@
 
      <!-- navbar scroll -->
      <script>
-      document.addEventListener("scroll", function () {
-        const navbar = document.querySelector("nav");
-
-        if (this.body.scrollTop > 1 || this.documentElement.scrollTop > 1) {
-          navbar.classList.add("nav-scrolled", "fixed-top");
-        } else {
-          navbar.classList.remove("nav-scrolled", "fixed-top");
+      document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll("nav a");
+        const sections = document.querySelectorAll("section");
+    
+        function showSection(id) {
+          sections.forEach(section => {
+            section.style.display = section.id === id ? "block" : "none";
+          });
         }
+    
+        // Hide all except the first section initially
+        showSection(sections[0].id);
+    
+        navLinks.forEach(link => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            showSection(targetId);
+          });
+        });
       });
+    </script>
+    
     </script>   
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
